@@ -1,14 +1,28 @@
 ---
 title: "domestic_airline.Rmd"
 author: "SHZ"
-date: "7/25/2019"
-output: html_document
+#date: "7/25/2019"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+    toc_collapse: true
+    number_sections: yes
+    df_print: paged
+    code_folding: "hide"
+    theme: sandstone
+    highlight: "espresso"
 ---
 <!-- test -->
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, message=F, warning=F)
 library(tidyverse)
 ```
+
+## Introduction
+### downloading dataset
 
 ```{r}
 
@@ -44,14 +58,15 @@ df %>%
 df2 <- df %>% filter(Airline != 'All Airlines')
 ```
 
-## Additional information about the data set
-<!--
+## Additional information about the data set 
+Not including code here
 ```{r child = 'domestic_airline_performance_notes.txt'}
 
 ```
--->
 
 ## Visualisation
+
+Making plots here 
 ```{r}
 df2 <- df %>% filter((Airline == 'Jetstar' | Airline == 'Qantas'),
                      Route != 'All Ports-All Ports')
@@ -88,12 +103,16 @@ df2 %>%
 ```
 
 ```{r}
+print("hello world")
+```
+
+
+```{r prompt=TRUE, comment=""}
 sentence <- c('Let', 'the', 'computer', 'do', 'the', 'work')
 
 for(word in sentence){
   print(word)
 }
 ```
-
-
+<!-- help documentations: ?rmarkdown::render -->
 ***
